@@ -1,19 +1,22 @@
-  import { useEffect, useState } from 'react';
-  import './App.css';
-  import Counter from './components/Counter';
+import { useEffect, useState } from 'react';
+import './App.css';
+import Counter from './components/Counter';
 
-  function App() {
-
-    return (
-      <div className="App">
-        <h1>hong gil dong</h1>
-        <Counter name="c1" />
-        <Counter name="c2" />
-        <Counter name="c3" />
-      </div >
-    );
-
-
+function App() {
+  const [buttonName, setButtonName] = useState("클릭");
+  const clickButton = () => {
+    setButtonName("click");
   }
-  export default App;
-  
+  return (
+    <div className="App">
+      <h1>Hong Gil Dong</h1>
+      <Counter click="클릭1" />
+      <Counter click={buttonName} />
+      <Counter />
+      <button onClick={clickButton}>Click</button>
+    </div >
+  );
+
+
+}
+export default App;

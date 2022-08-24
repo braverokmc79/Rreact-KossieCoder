@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 
 const Counter = (props) => {
-    const { name } = props;
     const [count, setCount] = useState(0);
 
     const increment = () => {
         setCount(count + 1);
     }
 
+    const clickString = props.click || "Click";
+
     return (
-        <button onClick={increment}>{name} - Click {count}</button>
+        <button onClick={increment}>{clickString}  {count}</button>
     );
 
 };
