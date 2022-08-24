@@ -2,35 +2,50 @@ import { useState } from 'react';
 import './App.css';
 
 function App() {
-  const [text, setText] = useState("hello");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [nickname, setNickname] = useState('');
 
-  const onSubmit = () => {
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log(username, password);
     alert("submitted");
   }
-  const onKeyUp = (event) => {
-    // console.log(event.target.value);
-    if (event.keyCode === 13) {
-      //console.log("전송");
-      onSubmit();
-    }
+
+  const handleForm = (e) => {
+    setNickname(e.target.value)
+    console.log("handleForm : ", [e.target.name], e.target.value);
   }
-
-
-  const updateText = () => {
-    setText("Coder");
-    console.log("1.text", text);
-  }
-
-  console.log("2.text",text);
 
   return (
     <div className="App">
-      <input onKeyUp={onKeyUp} />
-      <button onClick={onSubmit}>Submit</button>
 
-      <br /><br />
-      <span>{text}</span>
-      <button onClick={updateText}>Update</button>
+      <form onSubmit={onSubmit}>
+        <input placeholder='Username'
+          name='username'
+          value={username}
+          onChange={(e) => {
+            setUsername(e.target.value)
+          }} /><br />
+
+
+        <input placeholder='Password'
+          name='username'
+          value={password}
+          onChange={(e) => {
+            setPassword(e.target.value)
+          }}
+        /><br />
+
+        <input placeholder='Nickname'
+          name='nickname'
+          value={nickname}
+          onChange={handleForm}
+        /><br />
+
+        <button>Login</button>
+      </form>
+
     </div >
   );
 
