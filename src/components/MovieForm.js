@@ -4,7 +4,7 @@ const MovieForm = ({ addMovie }) => {
 
     const [movieTitle, setMovieTitle] = useState('');
     const [movieYear, setMovieYear] = useState('');
-    const [maxId, setMaxId] = useState(5);
+
 
     const resetForm = () => {
         setMovieTitle("");
@@ -13,10 +13,9 @@ const MovieForm = ({ addMovie }) => {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        setMaxId(maxId + 1);
         addMovie(
             {
-                id: maxId,
+                id: new Date(),
                 title: movieTitle,
                 year: movieYear
             }
