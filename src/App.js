@@ -1,19 +1,28 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import Counter from './components/Counter';
 
 function App() {
-  const [buttonName, setButtonName] = useState("클릭");
-  const clickButton = () => {
-    setButtonName("click");
-  }
+
+  const [condition, setCondition] = useState(false);
+
+  const toggle = () => setCondition(!condition);
+
+  useEffect(() => {
+    console.log("condition : ", condition);
+  }, [condition]);
+
+
+  const renderCondition = condition ? 'True' : 'False'
+
   return (
     <div className="App">
       <h1>Hong Gil Dong</h1>
-      <Counter click="클릭1" />
-      <Counter click={buttonName} />
-      <Counter />
-      <button onClick={clickButton}>Click</button>
+
+      <div>
+        {renderCondition}
+      </div>
+
+      <button onClick={toggle} > Toggle</button>
     </div >
   );
 
