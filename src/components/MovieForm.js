@@ -4,25 +4,49 @@ const MovieForm = ({ addMovie }) => {
 
     const [movieTitle, setMovieTitle] = useState('');
     const [movieYear, setMovieYear] = useState('');
-
+    const [titleError, setTitleError] = useState('');
+    const [yearError, setYearError] = useState('');
 
     const resetForm = () => {
         setMovieTitle("");
         setMovieYear("");
     }
 
-    const onSubmit = (event) => {
-        event.preventDefault();
-        addMovie(
-            {
-                id: new Date(),
-                title: movieTitle,
-                year: movieYear
-            }
-        );
-        resetForm();
+    const resetError = () => {
+        setTitleError("");
+        setYearError("");
     }
 
+    const validationForm = () => {
+        resetError();
+        let validated = true;
+        if (!movieTitle) {
+            setTitleError("영화제목을 입력해 주세요.");
+            validated = false;
+        }
+
+        if (!movieYear) {
+            setYearError("개봉년도를 입력해 주세요.");
+            validated = false;
+        }
+
+        return validated;
+    }
+
+    const onSubmit = (event) => {
+        event.preventDefault();
+        if (validationForm()) {
+            addMovie(
+                {
+                    id: new Date(),
+                    title: movieTitle,
+                    year: movieYear
+                }
+            );
+            resetError();
+            resetForm();
+        }
+    }
 
     return (
         <form onSubmit={onSubmit}>
@@ -32,15 +56,19 @@ const MovieForm = ({ addMovie }) => {
                 placeholder='영화제목'
                 onChange={e => setMovieTitle(e.target.value)}
             /><br />
+            <div style={{ color: "red" }} >{titleError}</div>
             <input
-                type="text"
+                type="date"
                 value={movieYear}
                 placeholder='개봉년도'
                 onChange={e => setMovieYear(e.target.value)}
-            /><br /><br />
+            />
+            <br /><div style={{ color: "red" }}> {yearError}</div >
+
+            <br /><br />
 
             <button>영화추가</button>
-        </form>
+        </form >
     );
 
 };
