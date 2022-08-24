@@ -32,7 +32,10 @@ function App() {
       id: maxId,
       title: movieTitle,
       year: movieYear
-    }])
+    }]);
+
+    setMovieTitle("");
+    setMovieYear("");
 
   }
 
