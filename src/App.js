@@ -1,33 +1,19 @@
-import { useEffect, useState } from 'react';
-import './App.css';
+  import { useEffect, useState } from 'react';
+  import './App.css';
+  import Counter from './components/Counter';
 
-function App() {
-  const [count, setCount] = useState(0);
-  const [kossie, setKossie] = useState(0);
+  function App() {
 
-  useEffect(() => {
-    console.log("count :", count);
-  }, [count]);
+    return (
+      <div className="App">
+        <h1>hong gil dong</h1>
+        <Counter name="c1" />
+        <Counter name="c2" />
+        <Counter name="c3" />
+      </div >
+    );
 
 
-  useEffect(() => {
-    console.log("first rendering");
-  }, []);
-
-  const increment = () => {
-    setCount(count + 1);
   }
-
-  return (
-    <div className="App">
-      <h1>hong gil dong</h1>
-      <button onClick={increment}>Click</button>
-      <button onClick={() => {
-        console.log("kossie", kossie);
-        setKossie(kossie + 1);
-      }}>Click1</button>
-    </div >
-  );
-
-}
-export default App;
+  export default App;
+  
