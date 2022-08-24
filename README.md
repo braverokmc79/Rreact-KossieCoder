@@ -1,5 +1,6 @@
 # [리액트js (reactjs) 기초 익히기 기본 강좌
 
+https://www.youtube.com/playlist?list=PLB7CpjPWqHOuf62H44TMkMIsqfkIzcEcX
 
 # React 앱 만들기 시작하기
 
