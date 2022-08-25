@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import MovieForm from '../components/MovieForm';
 import Movie from './../components/Movie';
 
-const PageMovies = () => {
+const Movies = () => {
 
     const [movies, setMovies] = useState([]);
 
@@ -29,4 +29,4 @@ const PageMovies = () => {
     );
 };
 
-export default PageMovies;
+export default Movies;
