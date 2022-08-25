@@ -1,23 +1,29 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import { Link, Routes, Route, Outlet } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+
+
 
 const Navbar = () => {
     return (
 
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <Link className="navbar-brand" to="/">Home</Link>
+            <NavLink className="navbar-brand" to="/" >Home</NavLink>
             <button className="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div className="navbar-nav">
-                    <Link className="nav-link active" to="/movies">Movies <span className="sr-only">(current)</span></Link>
-                    <Link className="nav-link" to="/users">Users</Link>
+                    {/*현재 버전의  부스트스랩 4.6 에서 activeClassName="active"  사용하지 않아도 된다. */}
+                    <NavLink className="nav-link" activeClassName="active" to="/movies">Movies
+                        <span className="sr-only">(current)</span>
+                    </NavLink>
+
+                    <NavLink className="nav-link" activeClassName="active" to="/users">Users</NavLink>
                 </div>
             </div>
-        </nav>
+        </nav >
     );
 };
 

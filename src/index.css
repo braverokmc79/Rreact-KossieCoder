@@ -16,4 +16,6 @@
   color: red;
 }
 
-
+.navbar .active , .navbar-nav .active{
+  color: rgb(46, 122, 214)  !important;
+} 
