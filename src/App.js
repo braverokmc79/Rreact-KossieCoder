@@ -1,8 +1,6 @@
 import Navbar from './components/Navbar';
 import { Routes, Route } from 'react-router-dom';
-import Movies from './pages/Movies';
-import Users from './pages/Users';
-import Home from './pages/Home';
+import routes from './routes';
 
 function App() {
 
@@ -11,9 +9,11 @@ function App() {
       <div className='container'>
         <Navbar />
         <Routes>
-          <Route path='/' element={<Home />}></Route>
-          <Route path='/movies' element={<Movies />}></Route>
-          <Route path='/users' element={<Users />}></Route>
+
+          {routes.map((route) => {
+            return <Route key={route.path} path={route.path} element={route.element}></Route>
+          })}
+
         </Routes>
       </div>
 
