@@ -2,8 +2,6 @@
 import React from 'react';
 import { Link, NavLink } from "react-router-dom";
 
-
-
 const Navbar = () => {
     return (
 
@@ -15,12 +13,30 @@ const Navbar = () => {
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div className="navbar-nav">
-                    {/*현재 버전의  부스트스랩 4.6 에서 activeClassName="active"  사용하지 않아도 된다. */}
+                    {/*현재 버전의  부스트스랩 4.6 에서 activeClassName="active"  사용하지 않아도 된다. 
+                    
+                    activeClassName="active" 사용시 오류
+                    */}
+                    {/* 
+                    <NavLink className="nav-link" to="/movies">Movies
+                        <span className="sr-only">(current)</span>
+                    </NavLink>
+                    <NavLink className="nav-link" to="/users">Users</NavLink>
+
+
+
                     <NavLink className="nav-link" activeClassName="active" to="/movies">Movies
                         <span className="sr-only">(current)</span>
                     </NavLink>
+                    <NavLink className="nav-link" activeClassName="active" to="/users">Users</NavLink> */}
 
-                    <NavLink className="nav-link" activeClassName="active" to="/users">Users</NavLink>
+
+                    <NavLink className={(navData) => (navData.isActive ? "nav-link active" : 'nav-link')} to="/movies">Movies
+                        <span className="sr-only">(current)</span>
+                    </NavLink>
+
+                    <NavLink className={(navData) => (navData.isActive ? "nav-link active" : 'nav-link')} to="/users">Users</NavLink>
+
                 </div>
             </div>
         </nav >

@@ -4,6 +4,7 @@ import MovieForm from './components/MovieForm';
 import Navbar from './components/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PageMovies from './pages/PageMovies';
+import Users from './pages/Users';
 
 
 
@@ -33,7 +34,7 @@ function App() {
       <Routes>
         <Route path='/' element={<h1>Home</h1>}></Route>
         <Route path='/movies' element={<PageMovies addMovie={addMovie} renderMovies={renderMovies} />}></Route>
-        <Route path='/users' element={<h1>Users</h1>}></Route>
+        <Route path='/users' element={<Users />}></Route>
       </Routes>
 
     </div >
